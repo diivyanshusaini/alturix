@@ -1,0 +1,198 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { color-scheme: light; --sy: 0; }
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; max-width: 100%; }
+body {
+  @apply bg-ivory text-ink font-sans antialiased;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-feature-settings: 'ss01', 'cv11', 'kern', 'liga';
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  max-width: 100%;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  line-height: 1.65;
+}
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+.grid > * { min-width: 0; }
+::selection { background: #F2D34F; color: #171717; }
+
+/* STRICT 3-FONT SYSTEM:
+   1. Display Font: "Righteous" (MAD, Make. Adapt. Discover., ALTURIX & Display Headlines)
+   2. Secondary Font: "Space Grotesk" (Headings, Navigation, Labels & Buttons)
+   3. Body Font: "Plus Jakarta Sans" (Paragraphs & Descriptions)
+*/
+.display {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  font-feature-settings: 'liga', 'kern';
+}
+.display-serif {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+.heading-expressive {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.nav-font {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.label {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  line-height: 1.35;
+}
+.lead {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.55rem, 1.05rem + 2vw, 2.9rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+.h-xl { font-size: clamp(2.1rem, 1rem + 5.2vw, 6.2rem); overflow-wrap: anywhere; }
+.h-hero { font-size: clamp(3.2rem, 1rem + 15vw, 18rem); }
+@media (min-width: 768px) { .h-hero { font-size: clamp(6.2rem, 1rem + 14.5vw, 19rem); } }
+.h-lg { font-size: clamp(1.65rem, 0.9rem + 4vw, 4.6rem); overflow-wrap: anywhere; }
+.h-md { font-size: clamp(1.4rem, 0.9rem + 2.2vw, 3.2rem); }
+.body-lg {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.15rem);
+  line-height: 1.68;
+  letter-spacing: -0.005em;
+}
+
+.mark {
+  background-image: linear-gradient(transparent 54%, #F2D34F 54%, #F2D34F 92%, transparent 92%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size .7s cubic-bezier(.2,.8,.2,1);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.mark.on, .group:hover .mark, a:hover > .mark { background-size: 100% 100%; }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.btn {
+  @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-ink px-5 py-2.5 text-sm font-medium transition-[color,background,transform] duration-300 hover:bg-ink hover:text-ivory active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.04em;
+}
+.btn-sun { @apply bg-sun hover:bg-ink hover:text-sun; }
+.field { @apply w-full rounded-xl border border-ink/20 bg-white/60 px-3 py-2 text-sm outline-none transition focus:border-ink focus:ring-2 focus:ring-sun; }
+
+/* Hero letters */
+.ch { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
+.ch > span { display: inline-block; animation: rise 1.1s cubic-bezier(.2,.8,.2,1) both; }
+/* Page transition */
+.page { animation: fade .6s cubic-bezier(.2,.8,.2,1) both; }
+/* Grain overlay for tactile feel */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: .05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+/* Custom cursor (fine pointers only) */
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 999px;
+  background: #F2D34F;
+  border: 1.5px solid #171717;
+  pointer-events: none;
+  transition: width .25s, height .25s, margin .25s, background .25s;
+  display: grid;
+  place-items: center;
+}
+.cursor.big { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: #F2D34F; opacity: .88; }
+.cursor span { font-size: 10px; color: #171717; opacity: 0; transform: scale(.5); transition: .25s; letter-spacing: .16em; }
+.cursor.label-on { width: 92px; height: 92px; margin: -46px 0 0 -46px; opacity: 1; }
+.cursor.label-on span { opacity: 1; transform: none; }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+@media (hover: hover) and (pointer: fine) { body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; } }
+.tilt { transform-style: preserve-3d; transition: transform .25s ease-out; will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+  .cursor { display: none; }
+}
+
+html.lenis, html.lenis body { height: auto; }
+@keyframes curtain { 0% { transform: translateY(100%); } 45%, 55% { transform: translateY(0); } 100% { transform: translateY(-100%); } }
+.curtain { animation: curtain 1s cubic-bezier(.76,0,.24,1) both; pointer-events: none; }
+.skewy { transform: skewX(calc(var(--vel, 0) * -1deg)); will-change: transform; }
+
+/* Wave-inspired section boundary reveal */
+.wave-section {
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wave-section:not(.wave-entered) {
+  opacity: 0.25;
+  transform: translateY(28px);
+}
+.wave-section.wave-entered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Occasional subtle shooting-star animations for THE CREATIVE UNIVERSE */
+@keyframes shootingStar {
+  0%, 78% {
+    transform: translate3d(0, 0, 0) rotate(-28deg) scaleX(0);
+    opacity: 0;
+  }
+  82% {
+    opacity: 0.85;
+  }
+  94% {
+    transform: translate3d(-420px, 230px, 0) rotate(-28deg) scaleX(1);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(-420px, 230px, 0) rotate(-28deg) scaleX(0);
+    opacity: 0;
+  }
+}
+.shooting-star {
+  position: absolute;
+  width: 140px;
+  height: 1.5px;
+  background: linear-gradient(90deg, rgba(242, 211, 79, 0.95), rgba(245, 242, 233, 0.4), transparent);
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+}
+.shooting-star-1 {
+  top: 16%;
+  right: 14%;
+  animation: shootingStar 11s ease-out infinite;
+}
+.shooting-star-2 {
+  top: 48%;
+  right: 26%;
+  animation: shootingStar 17s ease-out 5.5s infinite;
+}

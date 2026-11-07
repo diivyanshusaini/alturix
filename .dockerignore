@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.DS_Store
+*.log
+server/data/*.db-shm
+server/data/*.db-wal
+# Exclude unlinked duplicate test uploads from cloud bundle (kept locally)
+server/data/uploads/bb4d5cd1-9d2a-4da8-8370-6faebb4328e4.pdf
+server/data/uploads/d58db62c-9a06-42bc-85de-cd467f9cf739.pdf
+server/data/uploads/ecef2e4c-149e-4cab-83ad-7b6eece007e5.mp4
+server/data/uploads/songscape9-edit-*.mp4

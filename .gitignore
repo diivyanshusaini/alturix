@@ -1,0 +1,15 @@
+node_modules
+dist
+.DS_Store
+*.log
+server/data/*.db-shm
+server/data/*.db-wal
+
+# Ignore unlinked duplicate uploads (all 39 active project media files ARE tracked in git)
+server/data/uploads/bb4d5cd1-9d2a-4da8-8370-6faebb4328e4.pdf
+server/data/uploads/d58db62c-9a06-42bc-85de-cd467f9cf739.pdf
+server/data/uploads/6636c9db-d849-4272-8175-9ec7946fb11d.pdf
+server/data/uploads/ecef2e4c-149e-4cab-83ad-7b6eece007e5.mp4
+server/data/uploads/songscape9-edit-*.mp4
+server/data/uploads/10313165-ecb6-44a2-93ed-5b076936d570.mp4
+server/data/uploads/e765f5a2-6995-4103-92e8-3a63e51d5a51.mp4

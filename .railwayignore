@@ -1,0 +1,22 @@
+node_modules
+dist
+.git
+.DS_Store
+*.log
+server/data/*.db-shm
+server/data/*.db-wal
+# Exclude unlinked duplicate test files & >15MB media from initial source archive (streamed to /data volume right after deploy)
+server/data/uploads/bb4d5cd1-9d2a-4da8-8370-6faebb4328e4.pdf
+server/data/uploads/d58db62c-9a06-42bc-85de-cd467f9cf739.pdf
+server/data/uploads/ecef2e4c-149e-4cab-83ad-7b6eece007e5.mp4
+server/data/uploads/songscape9-edit-*.mp4
+server/data/uploads/bd632d3e-56a6-4ab5-b032-4ac763396599.pdf
+server/data/uploads/6636c9db-d849-4272-8175-9ec7946fb11d.pdf
+server/data/uploads/abfd62b9-1d6e-4978-aa1f-360f9af751c6.pdf
+server/data/uploads/490fb510-3cc3-41bb-9e15-a78cb359aae7.mp4
+server/data/uploads/3e8693e1-db35-4ea5-b81c-49f0714ab335.mp4
+server/data/uploads/945fb7ed-e496-4d05-9eea-ac16b2512e47.mp4
+server/data/uploads/8a0ea121-3621-45ee-a030-64e656209987.mp4
+server/data/uploads/f74e11f5-a0e1-4a46-8e1a-0bb81d09c159.mp4
+server/data/uploads/97db7d55-e8eb-423d-a46d-2ae4b46f3943.mp4
+server/data/uploads/c04a04c6-5ca5-452f-9532-74bcfeac2f78.mp4
